@@ -18,6 +18,7 @@ or the build workflow. Each build is also tagged with the short commit SHA.
 | code-server | `codercom/code-server` base image (FROM) | dockerfile manager |
 | sops | https://github.com/getsops/sops | `ARG SOPS_VERSION` + `# renovate:` hint |
 | age, age-keygen | https://github.com/FiloSottile/age | `ARG AGE_VERSION` + `# renovate:` hint |
+| shfmt | https://github.com/mvdan/sh | `ARG SHFMT_VERSION` + `# renovate:` hint |
 
 ## Updating versions
 

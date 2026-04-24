@@ -4,6 +4,8 @@ FROM codercom/code-server:4.117.0
 ARG SOPS_VERSION=v3.12.2
 # renovate: datasource=github-releases depName=FiloSottile/age
 ARG AGE_VERSION=v1.2.1
+# renovate: datasource=github-releases depName=mvdan/sh
+ARG SHFMT_VERSION=v3.13.1
 
 USER root
 
@@ -16,6 +18,10 @@ RUN set -eux \
  && curl -sSfL "https://github.com/FiloSottile/age/releases/download/${AGE_VERSION}/age-${AGE_VERSION}-linux-amd64.tar.gz" \
       | tar -xz --strip-components=1 -C /usr/local/bin age/age age/age-keygen \
  && chmod 0755 /usr/local/bin/age /usr/local/bin/age-keygen \
- && age --version
+ && age --version \
+ && curl -sSfL -o /usr/local/bin/shfmt \
+      "https://github.com/mvdan/sh/releases/download/${SHFMT_VERSION}/shfmt_${SHFMT_VERSION}_linux_amd64" \
+ && chmod 0755 /usr/local/bin/shfmt \
+ && shfmt --version
 
 USER coder
