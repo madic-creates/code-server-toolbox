@@ -1,4 +1,4 @@
-FROM codercom/code-server:4.134.0
+FROM codercom/code-server:4.135.0
 
 # renovate: datasource=github-releases depName=getsops/sops
 ARG SOPS_VERSION=v3.12.2
